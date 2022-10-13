@@ -1,1 +1,7 @@
-test
+y <- c(217,143,186,121,157,143)
+X <- matrix(c(1,0,2,0,1,0,1,1,1,2,2,2,1,2,3,1,2,3,0,1,5,2,1,1), 6, 4)
+dfX <- data.frame(y = y, x = X[,1], a = as.factor(X[,2]), b = as.factor(X[,3]), z = X[,4])
+model.matrix(y~x*b, data = dfX) # (i)
+model.matrix(y~x*z, data = dfX) # (ii)
+model.matrix(y~a*b, data = dfX) # (iii)
+model.matrix(y~z+I(x^2), data = dfX) # (iv)
